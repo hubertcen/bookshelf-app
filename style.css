@@ -1,0 +1,203 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Warna tema */
+:root {
+  --primary-bg: #f8f4e6; /* Warna pastel krem */
+  --secondary-bg: #ffffff; /* Warna putih bersih */
+  --primary-shadow: rgba(0, 0, 0, 0.1);
+  --accent-color: #f4a3a6; /* Pastel pink */
+  --secondary-accent: #a1c6e8; /* Pastel biru */
+  --hover-color: #e88b8f; /* Lebih gelap untuk hover */
+  --primary-text: #555; /* Warna teks */
+  --secondary-text: #777; /* Warna teks sekunder */
+}
+
+/* Atur body */
+body {
+  background: linear-gradient(135deg, #fdfcf9, #f8f4e6);
+  color: var(--primary-text);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--secondary-bg);
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px var(--primary-shadow),
+    -4px -4px 10px rgba(255, 255, 255, 0.8);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  color: var(--accent-color);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Formulir */
+form {
+  background: var(--secondary-bg);
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px var(--primary-shadow),
+    -4px -4px 10px rgba(255, 255, 255, 0.8);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="checkbox"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  box-shadow: inset 4px 4px 8px var(--primary-shadow),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+form input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+form button {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Buku */
+section {
+  margin-bottom: 30px;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--primary-text);
+}
+
+#incompleteBookList,
+#completeBookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Item Buku */
+[data-testid="bookItem"] {
+  background: var(--secondary-bg);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px var(--primary-shadow),
+    -4px -4px 10px rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-testid="bookItem"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 12px var(--primary-shadow),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+[data-testid="bookItemTitle"] {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--primary-text);
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--secondary-text);
+}
+
+[data-testid="bookItem"] button {
+  background: var(--secondary-accent);
+  color: #fff;
+  padding: 10px 16px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+[data-testid="bookItem"] button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Background menarik */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50px;
+  left: -50px;
+  width: 300px;
+  height: 300px;
+  background: var(--accent-color);
+  opacity: 0.2;
+  border-radius: 50%;
+  z-index: -1;
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background: var(--secondary-accent);
+  opacity: 0.2;
+  border-radius: 50%;
+  z-index: -1;
+  animation: float 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30px, -30px);
+  }
+}
